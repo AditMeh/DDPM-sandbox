@@ -175,21 +175,21 @@ def sample(net, T, beta_min, beta_max):
 
 
 if __name__ == "__main__":
-    # T = 128
-    # beta_min, beta_max = 0.0001, 0.02
+    T = 128x
+    beta_min, beta_max = 0.0001, 0.02
 
-    # points = gen_blobs()
-    # net = DiffusionModel(10, 128, 5)
-    # train(net, points, 400, 32, T, beta_min, beta_max)
-    # _, ret = sample(net, T, beta_min, beta_max)
-    # for j, i in enumerate(ret):
-    #     f, ax = plt.subplots(1, 1)
+    points = gen_blobs()
+    net = DiffusionModel(10, 128, 5)
+    train(net, points, 400, 32, T, beta_min, beta_max)
+    _, ret = sample(net, T, beta_min, beta_max)
+    for j, i in enumerate(ret):
+        f, ax = plt.subplots(1, 1)
 
-    #     ax.scatter(i.detach().numpy()[:, 0], i.detach().numpy()[:, 1])
-    #     ax.set_axis_off()
-    #     f.savefig(f'folder/{j}.png')
-    #     f.clear()
-    #     f.clf()
+        ax.scatter(i.detach().numpy()[:, 0], i.detach().numpy()[:, 1])
+        ax.set_axis_off()
+        f.savefig(f'folder/{j}.png')
+        f.clear()
+        f.clf()
 
     images = []
     for filename in sorted(os.listdir("./folder/"), key = lambda i: int(i.split(".")[0])):
